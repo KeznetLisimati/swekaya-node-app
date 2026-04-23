@@ -1,51 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Swekaya Grocery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="/style.css">
+
   <style>
-    body { font-family: Arial; background: #f4f4f4; margin:0; }
-    header { background: green; color: white; padding: 15px; text-align:center; }
-    .container { padding:20px; }
-    .products { display: flex; flex-wrap: wrap; gap:20px; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+    }
+
+    header {
+      background: #0a7d2c;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1542838132-92c53300491e') center/cover;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      margin-top: 20px;
+    }
+
+    .search-box input {
+      padding: 12px;
+      width: 300px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
     .card {
-      background:white;
-      border-radius:10px;
-      padding:15px;
-      width:200px;
-      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.2s;
     }
-    .card h3 { color: red; }
-    .price { color: orange; font-weight:bold; }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .price {
+      color: #ff7a00;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
     button {
-      background: yellow;
-      border:none;
-      padding:10px;
-      width:100%;
-      cursor:pointer;
-      font-weight:bold;
+      background: #ffcc00;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
     }
-    nav a { margin: 0 10px; color:white; text-decoration:none; }
+
+    button:hover {
+      background: #f5b800;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>🛒 Swekaya Grocery Store</h1>
+  <h1>🛒 Swekaya</h1>
   <nav>
     <a href="/">Home</a>
     <a href="/cart">Cart</a>
     <a href="/login">Login</a>
-    <a href="/login">Category</a>
+    <a href="/categories">Categories</a>
     <a href="/admin">Admin</a>
   </nav>
 </header>
 
+<section class="hero">
+  <h2>Order Fresh Groceries Online</h2>
+  <p>Fast delivery to your doorstep 🚀</p>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search for products...">
+  </div>
+</section>
+
 <div class="container">
-  <h2>Fresh Groceries</h2>
+  <div class="section-title">Popular Products</div>
+
   <div class="products">
     <% products.forEach(p => { %>
       <div class="card">
+        <img src="<%= p.image || 'https://via.placeholder.com/200' %>" alt="<%= p.name %>">
         <h3><%= p.name %></h3>
         <p class="price">$<%= p.price %></p>
         <button>Add to Cart</button>
@@ -53,6 +169,10 @@
     <% }) %>
   </div>
 </div>
+
+<footer>
+  <p>© 2026 Swekaya Grocery. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
