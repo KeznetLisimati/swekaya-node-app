@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swekaya Grocery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Welcome to Swekaya Grocery</h1>
+  <ul>
+    <% products.forEach(p => { %>
+      <li><%= p.name %> - $<%= p.price %></li>
+    <% }) %>
+  </ul>
+  <a href="/cart">Cart</a> | <a href="/login">Login</a> | <a href="/admin">Admin</a>
+</body>
+</html>

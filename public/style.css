@@ -1,0 +1,13 @@
+body {
+  font-family: Arial;
+  background-color: #f4f4f4;
+  color: green;
+}
+h1 {
+  color: green;
+}
+button {
+  background-color: yellow;
+  color: green;
+  padding: 10px;
+}
